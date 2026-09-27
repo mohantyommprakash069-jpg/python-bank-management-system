@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ferrous &amp; Vine — Private Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <div class="frame">
+    <aside class="rail">
+      <div class="rail-top">
+        <span class="mark">F&amp;V</span>
+        <h1>Ferrous &amp; Vine<br /><em>Private Ledger</em></h1>
+      </div>
+
+      <nav class="tabs" id="tabs">
+        <button class="tab active" data-tab="open">Open an Account</button>
+        <button class="tab" data-tab="deposit">Deposit</button>
+        <button class="tab" data-tab="withdraw">Withdraw</button>
+        <button class="tab" data-tab="statement">View Statement</button>
+        <button class="tab" data-tab="update">Update Details</button>
+        <button class="tab" data-tab="close">Close Account</button>
+      </nav>
+
+      <p class="rail-note">Every action requires your account number and 4‑digit PIN, verified against the ledger before anything moves.</p>
+    </aside>
+
+    <main class="stage">
+      <div class="stage-inner">
+
+        <section class="panel active" data-panel="open">
+          <header>
+            <span class="eyebrow">01 — New Relationship</span>
+            <h2>Open an account</h2>
+            <p class="lede">Tell us who you are. We'll cut you a private account number the moment this clears.</p>
+          </header>
+          <form id="form-open" class="ledger-form" novalidate>
+            <label>Full name<input type="text" name="name" required placeholder="Odalys Ferreira" /></label>
+            <label>Age<input type="number" name="age" min="18" required placeholder="27" /></label>
+            <label>Email<input type="email" name="email" required placeholder="odalys@example.com" /></label>
+            <label>Choose a 4‑digit PIN<input type="password" inputmode="numeric" maxlength="4" name="pin" required placeholder="••••" /></label>
+            <button type="submit">Open account</button>
+          </form>
+          <div class="result" data-result="open"></div>
+        </section>
+
+        <section class="panel" data-panel="deposit">
+          <header>
+            <span class="eyebrow">02 — Add Funds</span>
+            <h2>Deposit</h2>
+            <p class="lede">Up to 10,000 per transaction, credited instantly.</p>
+          </header>
+          <form id="form-deposit" class="ledger-form" novalidate>
+            <label>Account number<input type="text" name="accountNo" required placeholder="a3B$91c" /></label>
+            <label>PIN<input type="password" inputmode="numeric" maxlength="4" name="pin" required placeholder="••••" /></label>
+            <label>Amount<input type="number" name="amount" min="1" max="10000" required placeholder="1500" /></label>
+            <button type="submit">Deposit funds</button>
+          </form>
+          <div class="result" data-result="deposit"></div>
+        </section>
+
+        <section class="panel" data-panel="withdraw">
+          <header>
+            <span class="eyebrow">03 — Draw Down</span>
+            <h2>Withdraw</h2>
+            <p class="lede">Withdrawals are checked against your live balance before release.</p>
+          </header>
+          <form id="form-withdraw" class="ledger-form" novalidate>
+            <label>Account number<input type="text" name="accountNo" required placeholder="a3B$91c" /></label>
+            <label>PIN<input type="password" inputmode="numeric" maxlength="4" name="pin" required placeholder="••••" /></label>
+            <label>Amount<input type="number" name="amount" min="1" required placeholder="800" /></label>
+            <button type="submit">Withdraw funds</button>
+          </form>
+          <div class="result" data-result="withdraw"></div>
+        </section>
+
+        <section class="panel" data-panel="statement">
+          <header>
+            <span class="eyebrow">04 — Standing</span>
+            <h2>View statement</h2>
+            <p class="lede">A snapshot of your account exactly as the ledger holds it.</p>
+          </header>
+          <form id="form-statement" class="ledger-form" novalidate>
+            <label>Account number<input type="text" name="accountNo" required placeholder="a3B$91c" /></label>
+            <label>PIN<input type="password" inputmode="numeric" maxlength="4" name="pin" required placeholder="••••" /></label>
+            <button type="submit">View statement</button>
+          </form>
+          <div class="result" data-result="statement"></div>
+        </section>
+
+        <section class="panel" data-panel="update">
+          <header>
+            <span class="eyebrow">05 — Amend</span>
+            <h2>Update details</h2>
+            <p class="lede">Name, email, and PIN can change. Age, account number, and balance cannot.</p>
+          </header>
+          <form id="form-update" class="ledger-form" novalidate>
+            <label>Account number<input type="text" name="accountNo" required placeholder="a3B$91c" /></label>
+            <label>Current PIN<input type="password" inputmode="numeric" maxlength="4" name="pin" required placeholder="••••" /></label>
+            <label>New name <span class="opt">optional</span><input type="text" name="name" placeholder="Leave blank to keep" /></label>
+            <label>New email <span class="opt">optional</span><input type="email" name="email" placeholder="Leave blank to keep" /></label>
+            <label>New PIN <span class="opt">optional</span><input type="password" inputmode="numeric" maxlength="4" name="newPin" placeholder="Leave blank to keep" /></label>
+            <button type="submit">Save changes</button>
+          </form>
+          <div class="result" data-result="update"></div>
+        </section>
+
+        <section class="panel" data-panel="close">
+          <header>
+            <span class="eyebrow">06 — Sunset</span>
+            <h2>Close account</h2>
+            <p class="lede">Irreversible. The ledger entry is removed the moment your PIN checks out.</p>
+          </header>
+          <form id="form-close" class="ledger-form" novalidate>
+            <label>Account number<input type="text" name="accountNo" required placeholder="a3B$91c" /></label>
+            <label>PIN<input type="password" inputmode="numeric" maxlength="4" name="pin" required placeholder="••••" /></label>
+            <button type="submit" class="danger">Close this account</button>
+          </form>
+          <div class="result" data-result="close"></div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
